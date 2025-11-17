@@ -122,6 +122,6 @@ app.delete("/produtos/:id", (req, res) => {
 /* ----------------------------------------------------------------------------------------------------- */
 //porta
 
-app.listen(3000, () => {
+app.listen(5500, () => {
     console.log("Servidor rodando na porta 3000.");
 });
