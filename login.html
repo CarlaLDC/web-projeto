@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login.css">
+    <script defer src="js/auth.js"></script>
+
+    <title>Login no Armazém</title>
+</head>
+<body>
+    <header class="cabecalho">
+        <h3>Armazém do Pierre</h3>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+            </ul>
+    </header>
+
+    <main>
+        <section class="card">
+
+            <div class="alinhar">
+
+                <h1>Entrar</h1>
+                <span style="margin-left: 160px; margin-top: 3px;" class="etiqueta">LocalStorage</span>
+
+            </div>
+
+            <p class="desc">Faça login com e-mail e senha cadastrados.</p>
+        
+            <label for="email">E-mail</label>
+            <input id="email" type="email" placeholder="seu@email.com">
+        
+            <label for="senha">Senha</label>
+            <input id="senha" type="password" placeholder="••••••••">
+        
+            <button onclick="entrar()">Entrar</button>
+            <button class="secondary" onclick="irParaCadastro()">Cadastrar</button>
+        
+            <div id="mensagem" class="msg"></div>
+        
+            <hr>
+            <nav>
+                <a class="link" href="cadastro.html">Ir para Cadastro</a>
+                <a class="link" href="usuarios.html">Ver usuários</a>
+            </nav>
+        </section>
+    </main>
+    
+</body>
+</html>

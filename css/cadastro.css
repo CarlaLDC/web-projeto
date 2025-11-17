@@ -1,0 +1,25 @@
+.alinhar {
+    display: flex;
+    flex-direction: row;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    margin: 0 0 8px 0;
+    font-size: 22px;
+    color: #1f2937;
+}
+
+.etiqueta {
+    font-size: 12px;
+    padding: 5px 8px;
+    border-radius: 999px;
+    background: #eef2ff;
+    color: #3730a3;
+
+    width: 80px;
+    height: 25px;
+    margin: 5px -3px;
+    margin-left: 10%;
+}

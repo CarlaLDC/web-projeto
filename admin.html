@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script src="js/apiService.js"></script>
+    <script src="js/admin.js"></script> 
+
+    <title>Painel do Administrador</title>
+</head>
+<body>
+    <header class="cabecalho">
+        <h3>Administração do Armazém do Pierre</h3>
+
+        <input class="pesquisa" type="text" onkeyup="filtrar()" id="buscar" placeholder="Pesquise o produto desejado">
+        <ul></ul>
+            
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h2>Produtos</h2>
+
+    <section class="produtos" id="lista-produtos">
+        <p>Carregando produtos...</p>
+    </section>
+
+    <button id="btnAdicionar" style="margin: 20px 0; padding: 10px 15px; background-color: #4CAF50; color: white; border: none; cursor: pointer;">
+        Adicionar Novo Produto
+    </button>        
+
+    <section class="produtos" id="adicionarProduto" style="display:none; margin-top: 20px; border: 1px solid #ccc; padding: 20px;">
+
+        <h3>Adicionar Produto</h3>
+
+        <form class="card" id="produtoForm">
+            <div class="textos" style="font-weight: 600;">
+                <label for="nome">Nome:</label><br>
+                <input type="text" id="nome" name="nome" required><br><br>
+                
+                <label for="preco">Preço (R$):</label><br>
+                <input type="number" id="preco" name="preco" step="0.01" required><br><br>
+                
+                <label for="descricao">Descrição:</label><br>
+                <textarea id="descricao" name="descricao" required></textarea><br><br>
+                
+                <label for="imagemUrl">URL da Imagem:</label><br>
+                <input type="url" id="imagemUrl" name="imagemUrl" required><br><br>
+
+                <button type="submit">Salvar Produto</button>
+                <button type="button" onclick="fecharForm()">Cancelar</button>
+            </div>
+        </form>
+    </section>
+</body>
+</html>
