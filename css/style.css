@@ -1,8 +1,11 @@
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #e0f2f1;
     color: #333;
     line-height: 1.6;
+    margin: 0;
+    padding: 0; 
 }
 
 h1, h2, h3 {
@@ -10,6 +13,7 @@ h1, h2, h3 {
     color: #4CAF50;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
+
 
 .cabecalho {
     display: flex;
@@ -20,15 +24,15 @@ h1, h2, h3 {
     padding: 15px 25px;
     margin-bottom: 30px;
 
-    border: 2px solid #5a9b5d; 
-    border-radius: 15px; 
+   
+    border-bottom: 2px solid #5a9b5d; 
+    border-radius: 0 0 15px 15px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
 .cabecalho h3 {
     margin: 0;
     font-size: 1.8em;
-
     color: #fff; 
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
@@ -71,12 +75,14 @@ h1, h2, h3 {
     color: #fff;
 }
 
+
 .produtos {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Cards um pouco maiores */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 25px;
-    margin-bottom: 40px;
+    margin: 0 20px 40px 20px; 
 }
+
 
 .card {
     display: flex;
@@ -143,6 +149,7 @@ h1, h2, h3 {
     flex-grow: 1; 
 }
 
+
 .card button {
     background-color: #66bb6a; 
     color: white;
@@ -151,6 +158,7 @@ h1, h2, h3 {
     border-radius: 8px; 
     font-size: 0.95em;
     margin-top: 8px;
+    cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
@@ -167,27 +175,34 @@ h1, h2, h3 {
     background-color: #e04f4f;
 }
 
+.btn-comprar {
+    background-color: #a1887f !important; /* Marrom Rústico */
+    color: white !important;
+    padding: 10px 15px !important;
+    border-radius: 8px !important;
+    margin-top: 10px !important;
+    width: 100%;
+}
+.btn-comprar:hover {
+    background-color: #8d6e63 !important;
+    transform: translateY(-2px);
+}
+
 #btnAdicionar {
     display: block; 
-
     padding: 15px 25px;
     margin-bottom: 30px;
     margin-left: auto;
     margin-right: auto;
     max-width: 300px; 
-
     background-color: #4CAF50; 
     color: white;
-
     border: none;
     border-radius: 12px;
-
     font-size: 1.2em;
-
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-
 }
 
 #btnAdicionar:hover {
@@ -202,12 +217,10 @@ h1, h2, h3 {
     margin-right: auto;
     margin-top: 25px;
     margin-bottom: 50px;
-
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     border: 2px solid #a5d6a7;
-
 }
 
 #adicionarProduto h3 {
@@ -230,7 +243,7 @@ h1, h2, h3 {
 #adicionarProduto input[type="number"],
 #adicionarProduto input[type="url"],
 #adicionarProduto textarea {
-    width: calc(100% - 24px); /* ajusta para padding e borda */
+    width: calc(100% - 24px); 
     padding: 12px;
     margin-bottom: 20px;
     border: 1px solid #c8e6c9; 
@@ -249,10 +262,10 @@ h1, h2, h3 {
     padding: 12px 20px;
     border: none;
     border-radius: 8px;
-    cursor: pointer;
     font-size: 1.1em;
     font-weight: bold;
     margin-right: 15px;
+    cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
@@ -287,4 +300,132 @@ h1, h2, h3 {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
     border: 1px solid #c8e6c9;
+}
+
+.carrinho-main {
+    padding: 30px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.carrinho-painel {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+#carrinho-itens-lista {
+    flex-grow: 1; 
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 2px solid #a5d6a7;
+    min-height: 200px;
+}
+
+.carrinho-item-detalhe {
+    display: grid;
+    grid-template-columns: 2fr 0.5fr 1fr 1fr; /* Nome | Quantidade | Preço | Botão */
+    gap: 15px;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #c8e6c9; 
+}
+
+.carrinho-item-detalhe:last-child {
+    border-bottom: none;
+}
+
+.item-nome {
+    font-weight: bold;
+    color: #3e5e33;
+}
+
+.item-quantidade {
+    text-align: center;
+    color: #555;
+}
+
+.item-preco {
+    font-weight: bold;
+    color: #e57373;
+    text-align: right;
+}
+
+.remover-item-carrinho {
+    background-color: #e57373 !important;
+    color: white !important;
+    border: none !important;
+    padding: 8px 15px !important;
+    border-radius: 8px !important;
+    font-size: 0.9em !important;
+    transition: background-color 0.2s !important;
+    text-align: center;
+}
+
+.remover-item-carrinho:hover {
+    background-color: #e04f4f !important;
+}
+
+.carrinho-vazio {
+    text-align: center;
+    color: #888;
+    padding: 20px;
+    font-style: italic;
+}
+
+.carrinho-resumo {
+    width: 300px;
+    background-color: #f1f8e9; 
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 2px solid #a5d6a7;
+}
+
+.carrinho-resumo h3 {
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed #c8e6c9;
+    color: #3e5e33;
+}
+
+.carrinho-total {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-top: 15px;
+    border-top: 2px solid #c8e6c9;
+    padding-top: 10px;
+}
+
+.carrinho-resumo button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.finalizar-compra {
+    background-color: #66bb6a;
+    color: white;
+}
+
+.finalizar-compra:hover {
+    background-color: #43a047;
+    transform: translateY(-2px);
+}
+
+.limpar-carrinho {
+    background-color: #a1887f; 
+    color: white;
+}
+
+.limpar-carrinho:hover {
+    background-color: #8d6e63;
+    transform: translateY(-2px);
 }

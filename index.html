@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-
-    <script src="js/apiService.js"></script> 
-    <script src="js/main.js"></script>
+    
+    <link rel="stylesheet" href="css/carrinho.css"> 
 
     <title>Armazém do Pierre</title>
 </head>
@@ -15,14 +14,20 @@
         <h3>Armazém do Pierre</h3>
 
         <input class="pesquisa" type="text" onkeyup="filtrar()" id="buscar" placeholder="Pesquise o produto desejado">
-        <ul></ul>
-            
+        
         <nav>
             <ul>
                 <li><a href="index.html">Início</a></li>
+                
+                <li>
+                    <a href="carrinho.html" title="Carrinho de Compras">
+                        🛒 Carrinho (<span id="contador-carrinho">0</span>)
+                    </a>
+                </li>
+                
                 <li><a href="login.html">Login</a></li>
             </ul>
-
+        </nav>
     </header>
 
     <h2>Produtos</h2>
@@ -31,6 +36,8 @@
         <p>Carregando produtos...</p>
     </section>
 
-
+    <script src="js/apiService.js"></script> 
+    <script src="js/cart.js"></script> 
+    <script src="js/index.js"></script> 
 </body>
 </html>

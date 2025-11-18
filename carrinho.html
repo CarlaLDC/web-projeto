@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css"> 
+    
+    <title>Carrinho de Compras - Armazém do Pierre</title>
+</head>
+<body>
+    <header class="cabecalho">
+        <h3>Armazém do Pierre</h3>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="admin.html">Painel Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="carrinho-main">
+        <h2>Seu Carrinho de Compras 🛒</h2>
+        
+        <section class="carrinho-painel">
+            
+            <div id="carrinho-itens-lista">
+                </div>
+
+            <div class="carrinho-resumo">
+                <h3>Resumo do Pedido</h3>
+                <p>Total de Itens: <span id="contador-carrinho-pagina">0</span></p>
+                <div class="carrinho-total">
+                    <p>Total a Pagar: <span id="carrinho-total-valor">R$ 0,00</span></p>
+                </div>
+                
+                <button class="finalizar-compra">Finalizar Compra</button>
+                <button class="limpar-carrinho" onclick="limparCarrinho()">Limpar Carrinho</button>
+            </div>
+        </section>
+        
+    </main>
+
+    <script src="js/cart.js"></script> 
+</body>
+</html>

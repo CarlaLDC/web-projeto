@@ -4,8 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* ----------------------------------------------------------------------------------------------------- */
 
-//criar o card do produto no index
-
 function criarCardProdutoIndex(produto) {
     const card = document.createElement('div');
     card.classList.add('card');
@@ -15,6 +13,17 @@ function criarCardProdutoIndex(produto) {
             <h3 style="margin-bottom: 3px;">${produto.nome}</h3>         
             <span>R$ ${produto.preco ? produto.preco.toFixed(2).replace('.', ',') : 'N/A'}</span>
             <p style="margin-top: 4px;">${produto.descricao}</p>
+            
+            <button 
+                type="button" 
+                class="btn-comprar"
+                onclick="adicionarAoCarrinho({
+                    id: ${produto.id},
+                    nome: '${produto.nome.replace(/'/g, "\\'")}', 
+                    preco: ${produto.preco}
+                })">
+                Comprar
+            </button>
         </div>
     `;
     return card;
