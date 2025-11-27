@@ -442,3 +442,152 @@ h1, h2, h3 {
 
 /* ----------------------------------------------------------------------------------------------------- */
 
+@media (max-width: 900px) {
+    .produtos {
+        margin: 0 15px 50px 15px; 
+        gap: 20px;
+    }
+    
+    .cabecalho {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 20px;
+    }
+
+    .cabecalho .pesquisa {
+        display: none; 
+    }
+
+    .cabecalho nav {
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    .cabecalho nav ul {
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .cabecalho nav li {
+        margin-left: 0;
+    }
+
+    .cabecalho nav a {
+        font-size: 1em;
+        padding: 8px 10px;
+    }
+
+    .carrinho-main {
+        padding: 20px 15px;
+    }
+
+    .carrinho-painel {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .carrinho-resumo {
+        width: auto;
+    }
+}
+
+/* ----------------------------------------------------------------------------------------------------- */
+
+@media (max-width: 600px) {
+
+    body {
+        line-height: 1.5;
+    }
+
+    .cabecalho h3 {
+        font-size: 1.5em;
+    }
+
+    .cabecalho nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .cabecalho nav li {
+        margin: 5px 10px; 
+    }
+
+    .cabecalho nav a {
+        font-size: 0.9em;
+        padding: 6px 8px;
+    }
+
+    .produtos {
+        grid-template-columns: 1fr;
+        margin: 0 10px 40px 10px;
+        gap: 15px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+    
+    .card p {
+        display: none; 
+    }
+    
+    .card h3 {
+        font-size: 1.5em;
+    }
+    
+    .card span {
+        font-size: 1.2em;
+    }
+    
+    .card button, .btn-comprar {
+        padding: 10px 15px !important;
+        font-size: 0.95em !important;
+    }
+
+    #adicionarProduto {
+        padding: 20px;
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+
+    #adicionarProduto h3 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
+    #adicionarProduto input[type="text"],
+    #adicionarProduto input[type="number"],
+    #adicionarProduto input[type="url"],
+    #adicionarProduto textarea {
+        padding: 10px;
+        margin-bottom: 15px;
+        font-size: 1em;
+    }
+    
+    #adicionarProduto button {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+        font-size: 1em;
+    }
+    
+    .carrinho-item-detalhe {
+        grid-template-columns: 1.5fr 1fr 1fr; 
+        gap: 10px;
+        padding: 15px 0;
+    }
+
+    .item-quantidade {
+        display: none;
+    }
+    
+    .item-preco {
+        text-align: left;
+    }
+
+    .remover-item-carrinho {
+        padding: 8px 12px !important;
+        font-size: 0.9em !important;
+    }
+}
+
