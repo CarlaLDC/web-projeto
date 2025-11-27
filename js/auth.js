@@ -48,7 +48,7 @@
  
     // --------------------------- Interface do Usuário ----------------------
     const IU = {
-        mensagem(idElemento, texto, tipo = 'erro') { // 'erro' | 'sucesso'
+        mensagem(idElemento, texto, tipo = 'erro') {
             const el = document.getElementById(idElemento);
             if (!el) return;
             el.textContent = texto;
@@ -72,21 +72,17 @@
                     .find(u => (u.email || '').toLowerCase() === email.toLowerCase() && u.senha === senha);
  
                 if (usuario.email === 'admin@gmail.com' && usuario.senha === 'admin123') {
-                    // 1. Login bem-sucedido: Montar o objeto de usuário com isAdmin: true
                     const adminUser = {
                         email: 'admin@gmail.com',
                         isAdmin: true,
                         nome: "Admin",
-                        // Adicionar um token falso para simular um login real
                         token: 'fake-admin-token-123' 
                 };
 
-                    // 2. Salvar o usuário no localStorage
                     localStorage.setItem('usuario', JSON.stringify(adminUser));
                     
                     alert(`Bem-vindo, Administrador! Redirecionando para o painel.`);
                     
-                    // 3. Redirecionar para a página administrativa
                     window.location.href = 'admin.html';
 
                 }
@@ -109,9 +105,9 @@
                 const nome = (document.getElementById('nome')?.value || '').trim();
                 const email = (document.getElementById('email')?.value || '').trim();
                 const senha = document.getElementById('senha')?.value || '';
-                const confirmarSenha = document.getElementById('confirmar-senha')?.value || ''; // <-- NOVO
+                const confirmarSenha = document.getElementById('confirmar-senha')?.value || ''; 
  
-                if (!nome || !email || !senha || !confirmarSenha) { // <-- ALTERADO
+                if (!nome || !email || !senha || !confirmarSenha) { 
                     IU.mensagem('mensagem', 'Preencha todos os campos.'); return;
                 }
  
@@ -119,7 +115,6 @@
                     IU.mensagem('mensagem', 'A senha deve ter pelo menos 6 caracteres.'); return;
                 }
  
-                // NOVO: Validação se as senhas são iguais
                 if (senha !== confirmarSenha) {
                     IU.mensagem('mensagem', 'A senha e a confirmação de senha não coincidem.'); return;
                 }
@@ -131,7 +126,6 @@
                 UsuariosRepositorio.adicionar({ id: Date.now(), nome, email, senha });
                 IU.mensagem('mensagem', 'Cadastro realizado com sucesso!', 'sucesso');
  
-                // limpar campos. 'confirmar-senha' adicionado
                 ['nome', 'email', 'senha', 'confirmar-senha'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; }); // <-- ALTERADO
                 setTimeout(() => IU.navegar('login.html'), 900);
             },
@@ -166,7 +160,7 @@
         }
     };
  
-    // --------------------------- Expor para onclick ------------------------
+/* ----------------------------------------------------------------------------------------------------- */
     // Login
     window.entrar = () => Paginas.login.entrar();
     window.irParaCadastro = () => Paginas.login.irParaCadastro();

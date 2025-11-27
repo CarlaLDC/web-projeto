@@ -1,5 +1,4 @@
 
-// --- 1. Estado do Carrinho ---
 function obterCarrinho() {
     const carrinhoJSON = localStorage.getItem('carrinho');
     return carrinhoJSON ? JSON.parse(carrinhoJSON) : [];
@@ -10,9 +9,9 @@ function salvarCarrinho(carrinho) {
     atualizarContadoresUI();
 }
 
-// --- 2. Ações CRUD do Carrinho ---
-
+/* ----------------------------------------------------------------------------------------------------- */
 // Adicionar produto ao carrinho
+
 function adicionarAoCarrinho(produto) {
     const carrinho = obterCarrinho();
     const itemExistente = carrinho.find(item => item.id === produto.id);
@@ -27,7 +26,9 @@ function adicionarAoCarrinho(produto) {
     alert(`${produto.nome} adicionado ao carrinho!`);
 }
 
+/* ----------------------------------------------------------------------------------------------------- */
 // Remover item do carrinho
+
 function removerDoCarrinho(produtoId) {
     if (!confirm("Deseja remover este item do carrinho?")) return;
     
@@ -35,51 +36,49 @@ function removerDoCarrinho(produtoId) {
     carrinho = carrinho.filter(item => item.id !== produtoId);
     
     salvarCarrinho(carrinho);
-    
-    // Se estiver na página do carrinho, atualiza a lista
+
     if (document.getElementById('carrinho-itens-lista')) {
         renderizarCarrinhoNaPagina();
     }
 }
 
+/* ----------------------------------------------------------------------------------------------------- */
 // Limpar todo o carrinho
+
 function limparCarrinho() {
     if (!confirm("Tem certeza que deseja limpar todo o carrinho?")) return;
     
     localStorage.removeItem('carrinho');
     
-    // Atualiza a UI se estiver na página do carrinho
     if (document.getElementById('carrinho-itens-lista')) {
         renderizarCarrinhoNaPagina();
     }
     atualizarContadoresUI();
 }
 
-// --- 3. Funções de Renderização e UI ---
+/* ----------------------------------------------------------------------------------------------------- */
 
 function calcularTotal(carrinho) {
     return carrinho.reduce((acc, item) => acc + (item.preco * item.quantidade), 0);
 }
 
-// Atualiza o contador no cabeçalho (usado em todas as páginas)
 function atualizarContadoresUI() {
     const carrinho = obterCarrinho();
     const contador = carrinho.reduce((acc, item) => acc + item.quantidade, 0);
     
-    // Atualiza o contador no cabeçalho (Index/Admin)
     const contadorHeader = document.getElementById('contador-carrinho');
     if (contadorHeader) {
         contadorHeader.textContent = contador;
     }
 
-    // Atualiza o contador na página do Carrinho
     const contadorPagina = document.getElementById('contador-carrinho-pagina');
     if (contadorPagina) {
         contadorPagina.textContent = contador;
     }
 }
 
-// Renderiza a lista de itens na página carrinho.html
+/* ----------------------------------------------------------------------------------------------------- */
+
 function renderizarCarrinhoNaPagina() {
     const carrinho = obterCarrinho();
     const listaContainer = document.getElementById('carrinho-itens-lista');
@@ -112,13 +111,11 @@ function renderizarCarrinhoNaPagina() {
     atualizarContadoresUI();
 }
 
-// --- 4. Inicialização ---
+/* ----------------------------------------------------------------------------------------------------- */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Roda em todas as páginas para atualizar o contador do header
     atualizarContadoresUI();
     
-    // Se estiver na página do carrinho, renderiza a lista completa
     if (document.getElementById('carrinho-itens-lista')) {
         renderizarCarrinhoNaPagina();
     }

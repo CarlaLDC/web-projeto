@@ -1,11 +1,9 @@
-// Variável global para rastrear o ID do produto que está sendo editado
+
 let produtoEdicaoId = null; 
 
-// --- Lógica de Segurança e Inicialização ---
 
 document.addEventListener('DOMContentLoaded', function() {
     
-    // 1. Lógica de Segurança: Verificar se o usuário é admin
     const usuarioLogadoJSON = localStorage.getItem('usuario');
     let usuarioLogado;
 
@@ -18,21 +16,18 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!usuarioLogado || usuarioLogado.isAdmin !== true) {
         alert("Acesso negado. Você precisa ser administrador.");
         window.location.href = 'login.html';
-        return; // Para a execução do script
+        return; 
     }
     
-    // se for admin, carrega a lista
     listarProdutos();
 
 /* ----------------------------------------------------------------------------------------------------- */
 
-    // Botão Adicionar Novo Produto
     document.getElementById('btnAdicionar').addEventListener('click', () => {
         const adicionar = document.getElementById('adicionarProduto');
 
-        // Se estiver fechado, garante que o form está limpo antes de abrir
         if (adicionar.style.display === 'none') {
-            fecharForm(); // Limpa e reseta para o modo Adicionar
+            fecharForm(); 
             adicionar.style.display = 'block';
         } 
         
@@ -57,18 +52,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
         try {
             if (produtoEdicaoId) {
-                // se já tem edita
                 await fetchPUT(`/produtos/${produtoEdicaoId}`, dadosProduto); 
                 alert(`Produto editado com sucesso!`);
             } 
             
             else {
-                // se nao tem cria 
                 await fetchPOST('/produtos', dadosProduto); 
                 alert('Produto adicionado com sucesso!');
             }
             
-            // limpa, fecha e atualiza
             fecharForm();
             listarProdutos(); 
             
@@ -81,7 +73,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /* ----------------------------------------------------------------------------------------------------- */
-
 // Criar no index o card quando for inserido o produto, same as filter-web
 
 function criarCardProduto(produto) {
@@ -144,26 +135,21 @@ async function listarProdutos() {
 // **Função Principal de Edição (Busca e Preenche)**
 async function abrirFormEdicao(produtoId) {
     try {
-        // Busca os dados atuais do produto (GET /produtos/:id)
         const produto = await fetchGET(`/produtos/${produtoId}`);
         
         if (!produto) {
             alert("Produto não encontrado.");
             return;
         }
-
-        // 2. Armazena o ID e muda o título
         produtoEdicaoId = produtoId;
         document.querySelector('#adicionarProduto h3').textContent = `Editar Produto: ${produtoId}`;
 
-        // 3. Preenche o formulário
         const form = document.getElementById('produtoForm');
         form.nome.value = produto.nome;
         form.preco.value = produto.preco;
         form.descricao.value = produto.descricao;
         form.imagemUrl.value = produto.imagemUrl;
         
-        // 4. Mostra o formulário
         document.getElementById('adicionarProduto').style.display = 'block';
 
     } catch (error) {
@@ -173,8 +159,8 @@ async function abrirFormEdicao(produtoId) {
 }
 
 /* ----------------------------------------------------------------------------------------------------- */
-
 // Deletar Produto
+
 async function deletarProduto(produtoId) {
     if (!confirm(`Tem certeza que deseja DELETAR este produto?`)) {
         return;
@@ -192,12 +178,10 @@ async function deletarProduto(produtoId) {
 
 /* ----------------------------------------------------------------------------------------------------- */
 
-// Abrir e fecha, mechendo no display do css
 function fecharForm() {
     document.getElementById('adicionarProduto').style.display = 'none';
     document.getElementById('produtoForm').reset();
     
-    // Reseta o modo para adicionar dnv
     produtoEdicaoId = null;
     document.querySelector('#adicionarProduto h3').textContent = 'Adicionar Produto';
 }

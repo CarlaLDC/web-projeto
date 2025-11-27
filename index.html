@@ -4,22 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/global.css">
 
     <title>Armazém do Pierre</title>
 </head>
 <body>
     <header class="cabecalho">
-        <h3>Armazém do Pierre</h3>
+        <h3 style="font-family: Poppins;">Armazém do Pierre</h3>
 
         <input class="pesquisa" type="text" onkeyup="filtrar()" id="buscar" placeholder="Pesquise o produto desejado">
         
-        <nav>
+        <nav style="font-family: Poppins;">
             <ul>
                 <li><a href="index.html">Início</a></li>
                 
                 <li>
                     <a href="carrinho.html" title="Carrinho de Compras">
-                        🛒 Carrinho (<span id="contador-carrinho">0</span>)
+                        Carrinho (<span id="contador-carrinho">0</span>)
                     </a>
                 </li>
                 
@@ -28,7 +29,7 @@
         </nav>
     </header>
 
-    <h2>Produtos</h2>
+    <h2 style="margin-left: 40px; font-family: Poppins; ">Produtos</h2>
 
     <section class="produtos" id="lista-produtos">
         <p>Carregando produtos...</p>

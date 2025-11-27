@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperação de Senha Rústica</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Trocchi&family=Trirong:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/esqueci.css">
+    <link rel="stylesheet" href="css/global.css">
+
+    <script src="js/main.js"></script>
+
+</head>
+<body>
+
+    <div class="card">
+        <h1>Recuperar Acesso</h1>
+        
+        <p>Informe o seu endereço de e-mail. Enviaremos um link para você redefinir sua senha.</p>
+        
+        <form method="POST">
+            
+            <label for="email">Endereço de E-mail</label>
+            <input type="email" id="email" name="email" placeholder="seu.email@exemplo.com" required>
+            
+            <button onclick="enviarEmail()" type="submit">
+                Enviar Link de Recuperação
+            </button>
+            
+        </form>
+
+        <a href="login.html" class="link-voltar">
+            Lembrei minha senha. Voltar ao login.
+        </a>
+    </div>
+
+</body>
+</html>

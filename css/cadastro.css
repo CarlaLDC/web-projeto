@@ -1,25 +1,32 @@
+
 .alinhar {
     display: flex;
     flex-direction: row;
 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Trirong', serif; 
+    color: #4E342E; 
 }
 
 h1 {
-    margin: 0 0 8px 0;
-    font-size: 22px;
-    color: #1f2937;
+    margin: 0 0 10px 0;
+    font-size: 24px;
+    color: #4E342E; 
+    font-family: 'Trocchi', serif; 
+    font-weight: 600;
 }
 
 .etiqueta {
-    font-size: 12px;
-    padding: 5px 8px;
-    border-radius: 999px;
-    background: #eef2ff;
-    color: #3730a3;
+    font-size: 13px;
+    padding: 4px 10px;
+    border-radius: 5px; 
+    
+    background: #F5EFE9; 
+    color: #D37A3D; 
+    border: 1px solid #BCAAA4; 
 
-    width: 80px;
-    height: 25px;
-    margin: 5px -3px;
-    margin-left: 10%;
+    width: auto; 
+    height: auto; 
+    margin: 5px 0px; 
+    margin-left: 15px; 
+    font-weight: bold;
 }
