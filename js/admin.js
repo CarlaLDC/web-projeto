@@ -79,7 +79,7 @@ function criarCardProduto(produto) {
     const card = document.createElement('div');
     card.classList.add('card');
     card.innerHTML = `
-        <img src="${produto.imagemUrl || '/img/placeholder.jpg'}" alt="${produto.nome}">
+        <img src="${produto.imageUrl || '/img/placeholder.jpg'}" alt="${produto.nome}">
         <div class="textos">
             <h3 style="margin-bottom: 3px;">${produto.nome}</h3>         
             <span>R$ ${produto.preco ? produto.preco.toFixed(2).replace('.', ',') : 'N/A'}</span>

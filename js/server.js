@@ -4,7 +4,7 @@ const cors = require("cors");
 const axios = require("axios");
 const app = express();
 
-const MOCKAPI_URL = "https://691cfe80d58e64bf0d34a523.mockapi.io/";
+const MOCKAPI_URL = "https://691cfe80d58e64bf0d34a523.mockapi.io/produtos";
 
 
 
